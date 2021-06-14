@@ -3,8 +3,7 @@ import React,{useState , useEffect} from 'react'
 
 
 const Homescreen = () => {
-    console.log("hello")
-    const [title,setTitle] = useState("this is my homescreen")
+    const [title] = useState("List of Pokemon")
     const [data,setData] = useState([])
 
     useEffect( () => {
@@ -16,14 +15,18 @@ const Homescreen = () => {
 
     }, []);
 
-    return data.map((i) =>{
-        return ( 
+    const items = data.map((i) => {
+        return (<li>{i.name}</li>)
+    });
+
+    return (
         <div>
-            <li>{i.name}</li>
+        <h1>{title}</h1>
+        {items}
         </div>
-        )
-     });
-     
+
+    )
+
 }
 
 export default Homescreen
