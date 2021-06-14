@@ -5,26 +5,25 @@ import React,{useState , useEffect} from 'react'
 const Homescreen = () => {
     console.log("hello")
     const [title,setTitle] = useState("this is my homescreen")
-    const [data,setData] = useState("")
+    const [data,setData] = useState([])
 
     useEffect( () => {
-        axios.get('https://api.pokemontcg.io/v2/cards').then(
+        axios.get('https://api.pokemontcg.io/v2/cards'/*, {'X-Api-Key' : 111}*/).then(
             response => {
-                setData(response.data.name); 
+                setData(response.data.data); 
             }
         )
 
     }, []);
 
-
-    return (
+    return data.map((i) =>{
+        return ( 
         <div>
-            <h1>{title}</h1>
-            {data}
+            <li>{i.name}</li>
         </div>
-
-        //<button onClick = {() => {data}}>GET DATA</button>
-    )
+        )
+     });
+     
 }
 
 export default Homescreen
