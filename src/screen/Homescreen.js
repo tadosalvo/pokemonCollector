@@ -40,31 +40,6 @@ return (
 
 
 
-
-    /*
-    useEffect( () => {
-        axios.get('https://api.pokemontcg.io/v2/cards', {'X-Api-Key' : 111}).then(
-            response => {
-                setData(response.data.data); 
-            }
-        )
-
-    }, []);
-
-    const items = data.map((i) => {
-        return (<li>{i.name}</li>)
-    });
-
-    return (
-        <div>
-        <h1>{title}</h1>
-        {items}
-        </div>
-
-    )
-    */
-    
-
 }
 
 export default Homescreen
