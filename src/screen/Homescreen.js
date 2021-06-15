@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react'
 
 const Homescreen = () => {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     const [data, setData] = useState(null)
     const [title, setTitle] = useState("List of Pokemon")
     const [loading, setLoading] = useState(true)
@@ -24,6 +25,8 @@ const Homescreen = () => {
     }
 
 =======
+=======
+>>>>>>> Stashed changes
     const [title,setTitle] = useState("this is my homescreen")
     const [data,setData] = useState([])
 
@@ -33,9 +36,15 @@ const Homescreen = () => {
           const responseData = response.data.data
           setTitle(responseData[0].name)
           console.log(responseData[0].name)
+<<<<<<< Updated upstream
 
     }
 
+=======
+
+    }
+
+>>>>>>> Stashed changes
     useEffect( () => {
         fetchData();
         console.log(data)
@@ -52,6 +61,9 @@ const Homescreen = () => {
             {!loading ? <div>hello</div> : <div>Loading....</div>}
 =======
             <h1>{title}</h1>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         </div>
 
