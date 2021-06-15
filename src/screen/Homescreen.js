@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react'
 const Homescreen = () => {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     const [data, setData] = useState(null)
     const [title, setTitle] = useState("List of Pokemon")
     const [loading, setLoading] = useState(true)
@@ -27,6 +28,8 @@ const Homescreen = () => {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     const [title,setTitle] = useState("this is my homescreen")
     const [data,setData] = useState([])
 
@@ -37,9 +40,15 @@ const Homescreen = () => {
           setTitle(responseData[0].name)
           console.log(responseData[0].name)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
     }
 
+=======
+
+    }
+
+>>>>>>> Stashed changes
 =======
 
     }
@@ -62,6 +71,9 @@ const Homescreen = () => {
 =======
             <h1>{title}</h1>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
