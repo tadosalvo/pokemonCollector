@@ -15,10 +15,6 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [displayLoading, setDisplayLoading] = useState("Loading...")
 
-  const thisFunction = () => {
-    console.log("hello")
-  }
-
   const fetchData = async () => {
     setLoading(true)
     const options = {
@@ -41,7 +37,7 @@ function App() {
           <Route
             exact path='/'
             render={() => (
-              <Homescreen name={name} fetchData={fetchData} />
+              <Homescreen loading={loading} name={name} fetchData={fetchData} />
             )}
           />
 

@@ -14,7 +14,7 @@ const Homescreen = (props) => {
         // <h1>test</h1>
         // Example: Goes from "Title" in App.js then to responseDate[1].name or "Bulbasaur"
         <div> 
-            {!props.loading ? <h1>{props.name}</h1> : <h1>test</h1>}
+            {!props.loading ? <h1>{props.name}</h1> : <h1>loading...</h1>}
         </div>
 
     )
