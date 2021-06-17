@@ -13,7 +13,8 @@ function App() {
   const [name, setName] = useState("Pokemon Name")
   const [data,setData] = useState([])
   const [loading, setLoading] = useState(false)
-  const [displayLoading, setDisplayLoading] = useState("Loading...")
+
+
 
   const fetchData = async () => {
     setLoading(true)
