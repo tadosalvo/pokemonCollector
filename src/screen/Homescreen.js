@@ -2,8 +2,6 @@ import React,{useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import {getCards} from '../actions/cardActions'
 
-
-
 const Homescreen = (props) => {
 
     const dispatch = useDispatch();
@@ -15,6 +13,7 @@ const Homescreen = (props) => {
 
     useEffect(() => {
         dispatch(getCards())
+
     }, [dispatch]);
 
 

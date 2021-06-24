@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import React from 'react'
 import Homescreen from "./screen/Homescreen"
 import AboutScreen from './screen/AboutScreen'
+import ButtonAppBar from './components/appBar';
 
 function App() {
 
@@ -12,7 +13,8 @@ function App() {
     <div className="App">
    
       <Router>
-        <main >         
+        <main >
+            <ButtonAppBar/>         
             <Route exact path="/" component={Homescreen} />
         </main>
       </Router>
