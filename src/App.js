@@ -1,64 +1,19 @@
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import React,{useState} from 'react'
+import React from 'react'
 import Homescreen from "./screen/Homescreen"
 import AboutScreen from './screen/AboutScreen'
-import axios from 'axios'
-import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement } from './actions';
 
 function App() {
 
-  const [about, setAbout] = useState("About Page")
-  const [title,setTitle] = useState("Title")
-  const [name, setName] = useState("Pokemon Name")
-  const [data,setData] = useState([])
-  const [loading, setLoading] = useState(false)
-
-  const fetchData = async () => {
-    setLoading(true)
-    const options = {
-        headers: {'X-Api-Key' : "7719d04c-b2bf-44a2-a4b3-4d73ffc661d7" }
-    }
-      console.log("loading..")
-      const response = await axios.get("https://api.pokemontcg.io/v2/cards", options)
-      console.log("done")
-      const responseData = response.data.data
-      setName(responseData[1].name)
-      setData(responseData)
-      setLoading(false) 
-
-}
-
-  const counter = useSelector(state => state.counter);
-  const isLogged = useSelector(state => state.isLogged);
-  const dispatch = useDispatch();
-
-
+  
 
   return (
     <div className="App">
-      <h1>Counter: {counter}</h1>
-      <button onClick={() => dispatch(increment())}>+</button>
-      <button onClick={() => dispatch(decrement())}>-</button>
-
-      {isLogged ? <h3>logged in</h3> : <h3> Not logged in!</h3>}
+   
       <Router>
-        <main >
-          <Route
-            exact path='/'
-            render={() => (
-              <Homescreen loading={loading} name={name} fetchData={fetchData} />
-            )}
-          />
-
-          <Route
-            exact path='/about'
-            render={() => (
-              <AboutScreen about={about} />
-            )}
-          />
-
+        <main >         
+            <Route exact path="/" component={Homescreen} />
         </main>
       </Router>
     </div>

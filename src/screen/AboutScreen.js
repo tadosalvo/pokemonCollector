@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 
 const AboutScreen = (props) => {
     return (
         <div>
-            <h1>{props.about}</h1>
+            <h1>About Page</h1>
         </div>
     )
 }
