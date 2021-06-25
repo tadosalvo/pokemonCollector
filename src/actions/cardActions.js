@@ -6,7 +6,7 @@ import{
 import axios from 'axios'
 
 
-export const getCards = () => async (dispatch) => {
+export const getCards = (userSearchInput) => async (dispatch) => {
     try {
         dispatch({type: CARD_REQUEST})
 
@@ -14,7 +14,7 @@ export const getCards = () => async (dispatch) => {
             headers: {'X-Api-Key' : "7719d04c-b2bf-44a2-a4b3-4d73ffc661d7" }
         }
 
-        const {data} = await axios.get("https://api.pokemontcg.io/v2/cards", options)
+        const {data} = await axios.get("https://api.pokemontcg.io/v2/cards?q=name:" + userSearchInput + "*", options)
 
         dispatch({
             type: CARD_REQUEST_SUCCESS,
