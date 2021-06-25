@@ -47,21 +47,21 @@ const Homescreen = (props) => {
     const {data} = cards; 
 
     useEffect(() => {
-        dispatch(getCards())
-
+        
     }, [dispatch]);
 
     const handleChange = (event) => {
         event.preventDefault();
         setText(event.target.value)
-        console.log(cardState)
+        console.log(data)
+        
     }
 
     const onSubmit = (event) => {
         event.preventDefault();
         dispatch(getCards(text))
-        console.log(cardState)
         setCardState(data)
+        
 
     }
 
@@ -85,8 +85,8 @@ const Homescreen = (props) => {
 
             </Paper>
 
-            {loading ? <h1>not loading</h1> : cardState.map((item) => {
-                return <h2>hello</h2>
+            {loading ? <h1>loading..</h1> : error ? <h1>error...</h1> : data.map((item) => {
+                return <h1>hello...</h1>
             })}
 
         </div>

@@ -8,9 +8,14 @@ const allReducers = combineReducers({
     cardList: cardListReducer
 })
 
+const initialState = {
+    cardList : {cards: {data: []}}
+}
+
 const middleware = [thunk]
 const store = createStore(
     allReducers,
+    initialState,
     composeWithDevTools(applyMiddleware(...middleware))
     // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
