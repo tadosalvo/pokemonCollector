@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,13 +24,34 @@ const useStyles = makeStyles((theme) => ({
 export default function ButtonAppBar() {
   const classes = useStyles();
 
+  const [anchorEl, setAnchorEl] = React.useState(null)
+
+  const handleClose = () =>  {
+    setAnchorEl(null)
+  }
+
+  const openMenu = (event) => {
+    setAnchorEl(event.currentTarget)
+  }
+ 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton onClick = {openMenu} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
+            <Menu
+              id = "menu"
+              anchorEl = {anchorEl}
+              keepMounted
+              open = {Boolean(anchorEl)}
+              onClose = {handleClose}
+              >
+                <MenuItem onClick={handleClose}>Homepage</MenuItem>
+                <MenuItem onClick={handleClose}>About</MenuItem>
+                <MenuItem onClick={handleClose}>Game</MenuItem>
+              </Menu>
           <Typography variant="h6" className={classes.title}>
             Pokemon Collector
           </Typography>
