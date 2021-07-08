@@ -6,6 +6,7 @@ import AboutScreen from './screen/AboutScreen'
 import ButtonAppBar from './components/appBar';
 import SignUp from './screen/SignUpScreen'
 import LogIn from './screen/LoginScreen'
+import CardComponent from './components/CardComponent';
 
 function App() {
 
@@ -19,7 +20,10 @@ function App() {
             <ButtonAppBar/>         
             <Route exact path="/" component={Homescreen} />
             <Route exact path="/SignUp" component={SignUp} />
-            <Route exact path="/LogIn" component={SignUp} />
+            <Route exact path="/SignUp" component={AboutScreen} />
+            <Route exact path="/LogIn" component={LogIn} />
+            <Route exact path="/test" component={CardComponent} />
+
 
         </main>
       </Router>
