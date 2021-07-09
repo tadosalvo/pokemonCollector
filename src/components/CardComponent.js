@@ -18,21 +18,14 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      maxWidth: 345,
+      maxWidth: 285,
     },
+    
     media: {
-      height: 0,
+      height: 75,
       paddingTop: '75.25%', // 16:9
-    },
-    expand: {
-      transform: 'rotate(0deg)',
-      marginLeft: 'auto',
-      transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-      }),
-    },
-    expandOpen: {
-      transform: 'rotate(180deg)',
+      width: 200,
+      marginLeft: 30
     },
     avatar: {
       backgroundColor: red[500],
@@ -44,11 +37,6 @@ const CardComponent = () => {
     // need to logically handle prices if they have holofoil, normal, common ect.
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
-
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-      };
-
 
     const [test, setTest] = useState({
         name: "pokemon testName",
@@ -79,9 +67,8 @@ const CardComponent = () => {
             subheader={test.set.name + " " + test.set.series}
           />
           <CardMedia
-            className={classes.media}
+            className={classes.media} 
             image={test.image}
-            title="Paella dish"
           />
           <CardContent>
 
@@ -99,18 +86,10 @@ const CardComponent = () => {
 
             <IconButton aria-label="add to favorites">
               <button>add to collection</button>
-
             </IconButton>
            
 
-            <IconButton
-              className={clsx(classes.expand, {
-                [classes.expandOpen]: expanded,
-              })}
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="show more"
-            >
+            <IconButton className={clsx(classes.expand)}>
              <button>go to tcgplayer</button>
             </IconButton>
             
