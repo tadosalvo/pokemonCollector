@@ -53,10 +53,11 @@ export default function ButtonAppBar() {
                 <MenuItem component = { Link } to="/AboutScreen" onClick={handleClose}>About</MenuItem>
                 <MenuItem component = { Link } to="/GameScreen" onClick={handleClose}>Game</MenuItem>
               </Menu>
-          <Typography variant="h6" className={classes.title}>
-            Pokemon Collector
+          <Typography variant="h5" className={classes.title}>
+            Pokemon Collection Tracker
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button component = { Link } to="/SignUp" color="inherit">Sign Up</Button>
+          <Button component = { Link } to="/Login" color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </div>

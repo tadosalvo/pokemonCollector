@@ -20,7 +20,7 @@ function App() {
             <ButtonAppBar/>         
             <Route exact path="/" component={Homescreen} />
             <Route exact path="/SignUp" component={SignUp} />
-            <Route exact path="/SignUp" component={AboutScreen} />
+            <Route exact path="/About" component={AboutScreen} />
             <Route exact path="/LogIn" component={LogIn} />
             <Route exact path="/test" component={CardComponent} />
 
