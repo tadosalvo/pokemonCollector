@@ -7,6 +7,11 @@ import axios from 'axios'
 
 
 export const getCards = (userSearchInput) => async (dispatch) => {
+
+    if (userSearchInput.length === 0) {
+        userSearchInput = "zzz"
+    }
+
     try {
         dispatch({type: CARD_REQUEST})
 
