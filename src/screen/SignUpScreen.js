@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import UserPool from '../UserPool';
 
 function Copyright() {
   return (
@@ -48,6 +49,31 @@ const useStyles = makeStyles((theme) => ({
 
 const SignUpScreen = () => {
   const classes = useStyles();
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  //On Change function
+  const textFieldChange = (event) => {
+    setEmail(event.target.value)
+  }
+
+  const passwordChange = (event) => {
+    setPassword(event.target.value)
+  }
+
+  //on submit fuctions
+  const clickSubmit = (event) => {
+    event.preventDefault();
+
+    // handle sign up
+    UserPool.signUp(email, password, [], null, (err,data) => {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log(data)
+      }
+    })
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -59,7 +85,9 @@ const SignUpScreen = () => {
         <Typography component="h1" variant="h5">
           Sign Up and Track Your Collection!
         </Typography>
-        <form className={classes.form} noValidate>
+
+
+        <form onSubmit={clickSubmit} className={classes.form} >
           <TextField
             variant="outlined"
             margin="normal"
@@ -69,7 +97,9 @@ const SignUpScreen = () => {
             label="Email Address"
             name="email"
             autoComplete="email"
-            autoFocus
+            value={email} 
+            onChange={textFieldChange}
+            
           />
           <TextField
             variant="outlined"
@@ -81,6 +111,8 @@ const SignUpScreen = () => {
             type="password"
             id="password"
             autoComplete="current-password"
+            value={password} 
+            onChange={passwordChange}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -91,7 +123,6 @@ const SignUpScreen = () => {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
           >
             Sign In
           </Button>

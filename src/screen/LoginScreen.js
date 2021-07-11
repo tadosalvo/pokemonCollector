@@ -57,7 +57,7 @@ const LoginScreen = () => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign Up and Track Your Collection!
+          Login Up and Track Your Collection!
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
