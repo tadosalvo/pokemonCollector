@@ -1,29 +1,43 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { getCards } from '../actions/cardActions'
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import InputBase from '@material-ui/core/InputBase';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
 import SearchBar from '../components/SearchBar';
 
-const useStyles = makeStyles((theme) => ({
-
-}));
 
 const Homescreen = (props) => {
-    
 
+    const [text, setText] = useState("")
+    const [cardState, setCardState] = useState([])
+
+    const dispatch = useDispatch();
+    const cardList = useSelector((state) => {
+        return state.cardList
+    })
+
+    const { loading, cards, error } = cardList
+    const { data } = cards;
 
     return (
         <div>
+            <SearchBar
+                text={text}
+                setText={setText}
+                cardState={cardState}
+                setCardState={setCardState}
+                loading={loading}
+                cards={cards}
+                error={error}
+                data={data}
+                dispatch={dispatch}
 
-            <SearchBar/>
+            />
 
+            {loading ? <h1>loading..</h1> : error ? <h1>error...</h1> : data.map((item) => {
+
+                return <h1>{item.name}</h1>
+            })}
         </div>
+
+
     )
 
 }

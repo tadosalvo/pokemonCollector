@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react'
 import { getCards } from '../actions/cardActions'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles((theme) => ({
@@ -34,46 +32,26 @@ const useStyles = makeStyles((theme) => ({
 const SearchBar = (props) => {
     const classes = useStyles();
 
-
-    const [text, setText] = useState("")
-    const [cardState, setCardState] = useState([])
-
-    const dispatch = useDispatch();
-    const cardList = useSelector((state) => {
-        return state.cardList
-    })
-
-
-    const { loading, cards, error } = cardList
-    const {data} = cards; 
-
-
-    useEffect(() => {
-    
-    }, [dispatch]);
+    const {text, setText, setCardState, data, dispatch} = props
 
     const handleChange = (event) => {
         event.preventDefault();
         setText(event.target.value)
-        console.log(data)
-        
     }
 
     const onSubmit = (event) => {
+
         event.preventDefault();
         dispatch(getCards(text))
         setCardState(data)
         console.log(data[0])
         
-
     }
-
 
     return (
         <div>
 
             <Paper component="form" className={classes.root}>
-
 
                 <InputBase
                     onChange={handleChange}
@@ -87,11 +65,6 @@ const SearchBar = (props) => {
                 <Divider className={classes.divider} orientation="vertical" />
 
             </Paper>
-
-            {loading ? <h1>loading..</h1> : error ? <h1>error...</h1> : data.map((item) => {
-
-                return <h1>{item.name}</h1>
-            })}
 
         </div>
       );
