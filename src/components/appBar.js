@@ -52,6 +52,7 @@ export default function ButtonAppBar() {
                 <MenuItem component = { Link } to="/" onClick={handleClose}>Homepage</MenuItem>
                 <MenuItem component = { Link } to="/AboutScreen" onClick={handleClose}>About</MenuItem>
                 <MenuItem component = { Link } to="/GameScreen" onClick={handleClose}>Game</MenuItem>
+                <MenuItem component = { Link } to="/test" onClick={handleClose}>test</MenuItem>
               </Menu>
           <Typography variant="h5" className={classes.title}>
             Pokemon Collection Tracker

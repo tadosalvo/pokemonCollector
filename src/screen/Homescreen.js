@@ -31,10 +31,12 @@ const Homescreen = (props) => {
 
             />
 
-            {loading ? <h1>loading..</h1> : error ? <h1>error...</h1> : data.map((item) => {
-
-                return <h1>{item.name}</h1>
+            {loading ? <h1>loading..</h1> : error ? <h1>error...</h1> : data.map(function(item, index) {
+                if (index == 0){
+                    return <h1 key="{item}">{item.name}</h1>
+                    }
             })}
+ 
         </div>
 
 
